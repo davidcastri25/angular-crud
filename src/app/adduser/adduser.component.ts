@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+/* Third-Party Imports */
+import Swal from 'sweetalert2';
+
 /* App Imports */
 import { CrudService } from '../crud.service';
 
@@ -63,6 +66,13 @@ export class AdduserComponent implements OnInit {
     
       //Llamamos addUser en nuestro servicio CRUD y le pasamos los parámetros
       this.crudService.addUser(myFormData);
+
+      //Sweetalert message popup
+      Swal.fire({
+        title: 'Éxito',
+        text: 'El usuario ha sido creado correctamente',
+        icon: 'success'
+      });
       
       //Después de darle a submit, navegamos a users
       this.router.navigate([`/users`]);

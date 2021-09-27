@@ -29,4 +29,10 @@ export class CrudService {
       this.getUsers();
     });
   }
+
+  //DELETE: Borramos usuario
+  deleteUser (userId: any) {
+    return this.http.post('http://localhost/users.php/', userId)
+      .subscribe();
+  }
 }

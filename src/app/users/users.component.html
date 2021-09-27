@@ -8,6 +8,7 @@
                 <th>ID</th>
                 <th>Email</th>
                 <th>Nombre de Usuario</th>
+                <th>Acciones</th>
             </tr>
         </thead>
 
@@ -16,6 +17,12 @@
                 <td>{{group.id}}</td>
                 <td>{{group.email}}</td>
                 <td>{{group.username}}</td>
+                <td class="text-center">
+                    <button class="bg-danger"> 
+                        <i class="fas fa-trash" 
+                        (click)="deleteUser(group.id)"></i> 
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>
