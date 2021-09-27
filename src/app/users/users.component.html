@@ -17,11 +17,18 @@
                 <td>{{group.id}}</td>
                 <td>{{group.email}}</td>
                 <td>{{group.username}}</td>
-                <td class="text-center">
+                <td>
                     <button class="bg-danger"> 
                         <i class="fas fa-trash" 
                         (click)="deleteUser(group.id)"></i> 
                     </button>
+                    <a class="bg-warning" 
+                    routerLink="/user/{{group.id}}"> 
+                        <i class="fas fa-eye"></i> 
+                    </a>
+                    <a class="bg-primary" routerLink="/edituser/{{group.id}}"> 
+                        <i class="fas fa-edit"></i> 
+                    </a>
                 </td>
             </tr>
         </tbody>

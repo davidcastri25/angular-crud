@@ -12,6 +12,8 @@ export class CrudService {
   
   /* PROPERTIES */
   userData: any;
+  userId: any;
+  singleUserData: any;
   
   /* CONSTRUCTOR */
   constructor(private http: HttpClient) { }
@@ -34,5 +36,19 @@ export class CrudService {
   deleteUser (userId: any) {
     return this.http.post('http://localhost/users.php/', userId)
       .subscribe();
+  }
+
+  //Obtener un solo usuario
+  getSingleUser(userId: any) {
+    return this.http.post('http://localhost/users.php/', userId)
+      .subscribe((users: any) => {
+        this.singleUserData = users[0];
+      });
+  }
+
+  //Actualizar un usuario
+  updateUser(userId: any) {
+    return this.http.post('http://localhost/users.php/'
+    , userId).subscribe();
   }
 }

@@ -56,7 +56,7 @@ export class UsersComponent implements OnInit {
       });
 
       //Recargamos los usuarios
-      this.getUsers();
+      this.getUsers(); 
     }
   }
 }

@@ -1,0 +1,42 @@
+<div class="container p-5">
+    <!-- Título -->
+    <h1 class="text-left mb-5">Editar Usuario: {{user.username}}</h1>
+
+    <!-- Formulario -->
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <!-- Nombre de Usuario -->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <!-- Etiqueta -->
+                    <label>Nombre de Usuario</label>
+                    <!-- Input -->
+                    <input type="text" formControlName="firstName" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                    <!-- Errors -->
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required">El campo nombre de usuario es obligatorio</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Email -->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <!-- Etiqueta -->
+                    <label>Email</label>
+                    <!-- Input -->
+                    <input type="text" formControlName="email" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <!-- Errores -->
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Actualizar</button>
+    </form>
+</div>
