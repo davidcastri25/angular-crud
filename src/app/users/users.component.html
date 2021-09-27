@@ -1,0 +1,22 @@
+<div class="container p-5">
+
+    <h1>Usuarios</h1>
+
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Nombre de Usuario</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let group of data">
+                <td>{{group.id}}</td>
+                <td>{{group.email}}</td>
+                <td>{{group.username}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

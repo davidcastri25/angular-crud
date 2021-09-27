@@ -1,0 +1,48 @@
+<div class="container p-5">
+    <!-- Título -->
+    <h1 class="text-left mb-5">Añadir Usuario</h1>
+
+    <!-- Formulario -->
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <!-- Nombre de usuario -->
+            <div class="col-md-6">                
+                <div class="form-group">
+                    <!-- Etiqueta -->
+                    <label>Nombre de Usuario</label>
+                    <!-- Input -->
+                    <input type="text" formControlName="firstName"
+                    placeholder="Nombre de usuario"
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && formControls.firstName.errors }"/>
+                    <!-- Errores -->
+                    <div *ngIf="submitted && formControls.firstName.errors" 
+                    class="invalid-feedback">
+                        <div *ngIf="formControls.firstName.errors.required">El nombre de usuario es obligatorio.</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Email -->
+            <div class="col-md-6">
+                <div class="form-group">
+                    <!-- Etiqueta -->
+                    <label>Correo Electrónico</label>
+                    <!-- Input -->
+                    <input type="text" 
+                    formControlName="email"
+                    placeholder="mail@ejemplo.com" 
+                    class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && formControls.email.errors }" />
+                    <!-- Errores -->
+                    <div *ngIf="submitted && formControls.email.errors" class="invalid-feedback">
+                        <div *ngIf="formControls.email.errors.required">El correo electrónico es obligatorio.</div>
+                        <div *ngIf="formControls.email.errors.email">El correo electrónico debe tener un formato válido.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Button submit -->
+        <button type="submit" class="btn btn-primary mt-2">Añadir Usuario</button>
+    </form>
+</div>
